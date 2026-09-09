@@ -1,0 +1,93 @@
+{
+  "overall": {
+    "queries": 12000,
+    "baseline_ndcg10": 0.749302,
+    "candidate_ndcg10": 0.837608,
+    "delta_ndcg10": 0.088306,
+    "delta_ndcg10_ci95": [
+      0.085243,
+      0.091369
+    ],
+    "baseline_mrr10": 0.817866,
+    "candidate_mrr10": 0.910524,
+    "baseline_success3": 0.92875,
+    "candidate_success3": 0.963167,
+    "regression_slice_queries": 364,
+    "regression_slice_delta_ndcg10": -0.158032
+  },
+  "worst_slices": [
+    {
+      "platform": "android",
+      "intent": "tail",
+      "translit": true,
+      "queries": 364,
+      "baseline_ndcg10": 0.763019,
+      "candidate_ndcg10": 0.604987,
+      "delta_ndcg10": -0.158032
+    },
+    {
+      "platform": "ios",
+      "intent": "head",
+      "translit": true,
+      "queries": 73,
+      "baseline_ndcg10": 0.749894,
+      "candidate_ndcg10": 0.812001,
+      "delta_ndcg10": 0.062108
+    },
+    {
+      "platform": "web",
+      "intent": "head",
+      "translit": true,
+      "queries": 40,
+      "baseline_ndcg10": 0.782625,
+      "candidate_ndcg10": 0.859701,
+      "delta_ndcg10": 0.077076
+    },
+    {
+      "platform": "web",
+      "intent": "torso",
+      "translit": false,
+      "queries": 953,
+      "baseline_ndcg10": 0.754416,
+      "candidate_ndcg10": 0.836514,
+      "delta_ndcg10": 0.082098
+    },
+    {
+      "platform": "android",
+      "intent": "head",
+      "translit": true,
+      "queries": 86,
+      "baseline_ndcg10": 0.743447,
+      "candidate_ndcg10": 0.82909,
+      "delta_ndcg10": 0.085643
+    },
+    {
+      "platform": "android",
+      "intent": "tail",
+      "translit": false,
+      "queries": 988,
+      "baseline_ndcg10": 0.754548,
+      "candidate_ndcg10": 0.840873,
+      "delta_ndcg10": 0.086326
+    },
+    {
+      "platform": "web",
+      "intent": "head",
+      "translit": false,
+      "queries": 795,
+      "baseline_ndcg10": 0.745773,
+      "candidate_ndcg10": 0.833526,
+      "delta_ndcg10": 0.087753
+    },
+    {
+      "platform": "web",
+      "intent": "torso",
+      "translit": true,
+      "queries": 103,
+      "baseline_ndcg10": 0.736644,
+      "candidate_ndcg10": 0.829215,
+      "delta_ndcg10": 0.092571
+    }
+  ],
+  "decision": "limited_rollout"
+}
