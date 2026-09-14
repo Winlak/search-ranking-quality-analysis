@@ -7,7 +7,7 @@ WITH ranked AS (
         ranker,
         rank,
         relevance,
-        (POWER(2, relevance) - 1) / LOG(2, rank + 1) AS dcg_part
+        (POWER(2, relevance) - 1) / LOG2(rank + 1) AS dcg_part
     FROM ranking_rows
 ),
 query_dcg AS (
@@ -26,17 +26,15 @@ query_dcg AS (
 ideal AS (
     SELECT
         query_id,
-        ranker,
-        SUM((POWER(2, relevance) - 1) / LOG(2, ideal_rank + 1)) AS idcg10
+        SUM((POWER(2, relevance) - 1) / LOG2(ideal_rank + 1)) AS idcg10
     FROM (
         SELECT
             query_id,
-            ranker,
             relevance,
-            ROW_NUMBER() OVER (PARTITION BY query_id, ranker ORDER BY relevance DESC) AS ideal_rank
-        FROM ranked
+            ROW_NUMBER() OVER (PARTITION BY query_id ORDER BY relevance DESC, doc_id) AS ideal_rank
+        FROM relevance_judgments
     ) ordered_relevance
-    GROUP BY 1, 2
+    GROUP BY 1
 )
 SELECT
     q.query_id,
@@ -48,5 +46,4 @@ SELECT
     CASE WHEN q.first_relevant_rank IS NULL THEN 0 ELSE 1.0 / q.first_relevant_rank END AS mrr10,
     q.success3
 FROM query_dcg q
-JOIN ideal i USING (query_id, ranker);
-
+JOIN ideal i USING (query_id);

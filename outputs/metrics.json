@@ -2,16 +2,16 @@
   "overall": {
     "queries": 12000,
     "baseline_ndcg10": 0.749302,
-    "candidate_ndcg10": 0.837608,
-    "delta_ndcg10": 0.088306,
+    "candidate_ndcg10": 0.832441,
+    "delta_ndcg10": 0.083139,
     "delta_ndcg10_ci95": [
-      0.085243,
-      0.091369
+      0.080309,
+      0.08597
     ],
     "baseline_mrr10": 0.817866,
-    "candidate_mrr10": 0.910524,
+    "candidate_mrr10": 0.905358,
     "baseline_success3": 0.92875,
-    "candidate_success3": 0.963167,
+    "candidate_success3": 0.958,
     "regression_slice_queries": 364,
     "regression_slice_delta_ndcg10": -0.158032
   },
@@ -49,8 +49,35 @@
       "translit": false,
       "queries": 953,
       "baseline_ndcg10": 0.754416,
-      "candidate_ndcg10": 0.836514,
-      "delta_ndcg10": 0.082098
+      "candidate_ndcg10": 0.832317,
+      "delta_ndcg10": 0.077901
+    },
+    {
+      "platform": "android",
+      "intent": "tail",
+      "translit": false,
+      "queries": 988,
+      "baseline_ndcg10": 0.754548,
+      "candidate_ndcg10": 0.836825,
+      "delta_ndcg10": 0.082277
+    },
+    {
+      "platform": "web",
+      "intent": "torso",
+      "translit": true,
+      "queries": 103,
+      "baseline_ndcg10": 0.736644,
+      "candidate_ndcg10": 0.819507,
+      "delta_ndcg10": 0.082862
+    },
+    {
+      "platform": "web",
+      "intent": "head",
+      "translit": false,
+      "queries": 795,
+      "baseline_ndcg10": 0.745773,
+      "candidate_ndcg10": 0.829752,
+      "delta_ndcg10": 0.083979
     },
     {
       "platform": "android",
@@ -60,34 +87,7 @@
       "baseline_ndcg10": 0.743447,
       "candidate_ndcg10": 0.82909,
       "delta_ndcg10": 0.085643
-    },
-    {
-      "platform": "android",
-      "intent": "tail",
-      "translit": false,
-      "queries": 988,
-      "baseline_ndcg10": 0.754548,
-      "candidate_ndcg10": 0.840873,
-      "delta_ndcg10": 0.086326
-    },
-    {
-      "platform": "web",
-      "intent": "head",
-      "translit": false,
-      "queries": 795,
-      "baseline_ndcg10": 0.745773,
-      "candidate_ndcg10": 0.833526,
-      "delta_ndcg10": 0.087753
-    },
-    {
-      "platform": "web",
-      "intent": "torso",
-      "translit": true,
-      "queries": 103,
-      "baseline_ndcg10": 0.736644,
-      "candidate_ndcg10": 0.829215,
-      "delta_ndcg10": 0.092571
     }
   ],
-  "decision": "limited_rollout"
+  "decision": "investigate_slice_before_online_test"
 }
